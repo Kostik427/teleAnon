@@ -153,7 +153,7 @@ class ChatBot:
             user_id = message.from_user.id
             hashed_id = self._hash_id(user_id)
             setup_state = self.setup_states.get(user_id)
-    
+
             if setup_state == SetupState.AGE:
                 try:
                     age = int(message.text)
@@ -527,7 +527,7 @@ class ChatBot:
                         timestamp=datetime.now(),
                     )
                 )
-
+ 
         except Exception as e:
             print(f"Error while forwarding message: {e}")
             self.bot.send_message(
