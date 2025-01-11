@@ -200,6 +200,7 @@ class ChatBot:
                     self.bot.reply_to(
                         message, f"Please choose a valid room:\n{rooms_str}"
                     )
+            self._save_settings()
 
         @self.bot.message_handler(commands=["search"])
         def search_handler(message):
@@ -308,7 +309,7 @@ class ChatBot:
                 user1 = self.waiting_users.pop(0)
                 user2 = self.waiting_users.pop(
                     best_match - 1
-                )  # -1 because we removed user1
+                )  
 
                 self.active_chats[user1] = user2
                 self.active_chats[user2] = user1
